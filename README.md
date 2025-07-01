@@ -15,7 +15,7 @@
 
 - ✅ Upload any PDF and ask questions
 - 🤖 Uses vector embeddings for accurate context retrieval
-- 🔍 Answers generated via LLMs (Gemini/OpenAI)
+- 🔍 Answers generated via LLMs (Gemini)
 - 📝 Stores Q&A history in PostgreSQL
 - 🌐 Frontend hosted on [Streamlit Cloud](https://rick-168-ask-your-pdf-pdf-qa-app-qyeepi.streamlit.app/)
 - 🐳 Dockerized for easy deployment
