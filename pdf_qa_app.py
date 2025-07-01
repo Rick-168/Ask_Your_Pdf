@@ -26,7 +26,7 @@ if st.button("Get Answer") and uploaded_file and question.strip():
             data = {
                 "question": question
             }
-            response = requests.post("http://127.0.0.1:8000/ask", files=files, data=data)
+            response = requests.post("https://ask-your-pdf-zoqy.onrender.com", files=files, data=data)
             if response.status_code == 200:
                 result = response.json()
                 st.success("✅ Answer:")
