@@ -5,6 +5,8 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 
+
+
 load_dotenv()
 
 st.set_page_config(page_title="PDF Q&A Assistant", layout="wide")
@@ -42,6 +44,25 @@ else:
 # ✅ Show Previous Q&A
 st.subheader("🕘 Q&A History")
 
+# 🔘 Clear History Button
+if st.button("🗑️ Clear History"):
+    try:
+        conn = psycopg2.connect(
+            dbname=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASS"),
+            host=os.getenv("DB_HOST"),
+            port=os.getenv("DB_PORT")
+        )
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM qa_logs")
+        conn.commit()
+        conn.close()
+        st.success("✅ History cleared successfully.")
+    except Exception as e:
+        st.error(f"❌ Failed to clear history: {e}")
+
+# 🧾 Show remaining history
 try:
     conn = psycopg2.connect(
         dbname=os.getenv("DB_NAME"),
@@ -54,4 +75,4 @@ try:
     st.dataframe(df)
     conn.close()
 except Exception as e:
-    st.error(f"Failed to fetch history: {e}")
+    st.error(f"❌ Failed to fetch history: {e}")
