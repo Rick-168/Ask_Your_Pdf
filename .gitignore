@@ -1,0 +1,18 @@
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Your sensitive files
+db.py
+pdf_qa_app.py
+
