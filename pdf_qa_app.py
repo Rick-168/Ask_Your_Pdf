@@ -28,7 +28,8 @@ if st.button("Get Answer") and uploaded_file and question.strip():
             data = {
                 "question": question
             }
-            response = requests.post("https://ask-your-pdf-zoqy.onrender.com/ask", files=files, data=data)
+            FASTAPI_URL = os.getenv("FASTAPI_URL")
+            response = requests.post(FASTAPI_URL, files=files, data=data)
             if response.status_code == 200:
                 result = response.json()
                 st.success("✅ Answer:")
