@@ -12,7 +12,3 @@ __pycache__/
 *.pyd
 
 
-# Your sensitive files
-db.py
-pdf_qa_app.py
-
